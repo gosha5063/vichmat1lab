@@ -1,0 +1,37 @@
+name: Build PDFs
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: ["**"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pandoc + TeX (XeLaTeX) + fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-xetex \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-lang-cyrillic \
+            fonts-dejavu-core \
+            fonts-dejavu-extra
+
+      - name: Build PDFs
+        run: |
+          chmod +x scripts/build_pdfs.sh
+          ./scripts/build_pdfs.sh
+
+      - name: Upload PDFs (artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-pdf
+          path: dist/*.pdf
+
