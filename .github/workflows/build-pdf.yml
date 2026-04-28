@@ -21,6 +21,8 @@ jobs:
             texlive-latex-recommended \
             texlive-latex-extra \
             texlive-lang-cyrillic \
+            lmodern \
+            texlive-fonts-recommended \
             fonts-dejavu-core \
             fonts-dejavu-extra
 
