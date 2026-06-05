@@ -31,6 +31,8 @@ build_one () {
 build_one "$ROOT_DIR/1dz_1part/Отчет_ИУ6_Н1_вариант7.md"
 build_one "$ROOT_DIR/1dz_2part/Отчет_Н2_вариант7.md"
 build_one "$ROOT_DIR/1dz_3part/Отчет_Н3_вариант7.md"
+build_one "$ROOT_DIR/2dz_4part/Отчет_Н4_вариант7.md"
+build_one "$ROOT_DIR/2dz_5part/Отчет_Н5_вариант7.md"
 
 echo "PDFs written to: $OUT_DIR"
 
